@@ -1,3 +1,7 @@
+I did not take additinal 30 min, becouse I need to go to office now.
+Thank you for giving me chance.
+Daria
+
 # Your broken Tasks Widget
 Complete as many tasks as can before deadline.
 The order is up to you :)
