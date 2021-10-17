@@ -69,7 +69,7 @@ export default class Store {
 	}
 
 	insert(item, callback) {
-		debugger;
+		//debugger;
 		const todos = this.getLocalStorage();
 		item.title = item.title.replace('>','');
 		item.title = item.title.replace('<','');
