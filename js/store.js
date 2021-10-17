@@ -25,7 +25,6 @@ export default class Store {
 
 	find(query, callback) {
 		const todos = this.getLocalStorage();
-
 		callback(todos.filter(todo => {
 			for (let k in query) {
 				if (query[k] !== todo[k]) {
@@ -34,6 +33,18 @@ export default class Store {
 			}
 			return true;
 		}));
+	}
+
+	contains(todos, item) {
+		let i = todos.length;
+
+		while (i--) {
+			if (todos[i].title === item.title) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	update(update, callback) {
@@ -58,10 +69,18 @@ export default class Store {
 	}
 
 	insert(item, callback) {
+		debugger;
 		const todos = this.getLocalStorage();
-		todos.push(item);
-
-		this.setLocalStorage(todos);
+		item.title = item.title.replace('>','');
+		item.title = item.title.replace('<','');
+		if(!this.contains(todos,item))
+		{
+			todos.push(item);
+			this.setLocalStorage(todos);
+		}
+		else{
+			alert(item.title  + " is already exist");
+		}		
 
 		if (callback) {
 			callback();
