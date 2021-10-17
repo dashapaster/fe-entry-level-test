@@ -3,9 +3,12 @@ import { emptyItemQuery } from './item.js';
 export default class Store {
 
 	constructor(name, callback) {
-		const localStorage = window.sessionStorage;
+		//debugger;
+		const localStorage = window.localStorage;
 
 		let liveTodos;
+
+		
 
 		this.getLocalStorage = () => {
 			return liveTodos || JSON.parse(localStorage.getItem(name) || '[]');
